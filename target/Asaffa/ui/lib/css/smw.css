@@ -1,0 +1,148 @@
+body{
+
+	background-color: #eeffee;
+	font-size:1em;
+	font-family: 'Century Gothic', Verdana, Arial, Helvetica, sans-serif;
+}
+
+#smw-header {
+	background-color: #66dd00;
+	background: -webkit-linear-gradient(66dd00, #fff, #66dd00);
+	background: -o-linear-gradient(66dd00, #fff, #66dd00);
+	background: -moz-linear-gradient(66dd00, #fff, #66dd00);
+	background: linear-gradient(#66dd00, #fff, #66dd00);
+}
+#smw-footer{
+	background-color: #008800;
+}
+
+.smw-signin{
+	width: 25%;
+	background-color: #eee;
+	border-color: #D8D8D8;
+	color: black;
+	margin-top: 0px;
+    box-shadow: 0 0 10px gray; 
+	}
+.smw-login{padding-top: 100px; padding-bottom:20px;}
+.smw-logout{
+	width: 40px;
+	float: right;
+	background-color: #eee;
+	border-color: #D8D8D8;
+	color: black;
+	margin-top: 0px;
+    box-shadow: 0 0 10px gray;
+	}	
+
+.center{float: none; margin-left: auto; margin-right: auto;}
+
+header h4, footer{
+	color:#fff;
+	
+}
+h5{
+	font-weight:bold;
+	color:#000088;
+}
+footer {padding:5px 0px;}
+
+.smw-home{
+	width: 40px;
+	float: left;
+	background-color: #eee;
+	border-color: #D8D8D8;
+	color: black;
+	margin-top: 10px;
+    box-shadow: 0 0 10px gray;
+	}
+.smw-selection{
+	padding-top: 60px; 
+	padding-bottom:20px;
+	height: -webkit-fill-available;
+	}	
+.smw-inline{
+	/*font-family:smw-inline;*/
+	font-size: 10px;
+	}	
+.smw-confirm{
+	width: 75px;
+	float: right;
+	background-color: #eee;
+	border-color: #D8D8D8;
+	color: black;
+	margin-top: 0px;
+    box-shadow: 0 0 10px gray; 
+	}
+.smw-cancel{
+	width: 70px;
+	float: right;
+	background-color: #eee;
+	border-color: #D8D8D8;
+	color: black;
+	margin-top: 0px;
+    box-shadow: 0 0 10px gray; 
+	}
+.smw-print{
+	width: 60px;
+	float: right;
+	background-color: #eee;
+	border-color: #D8D8D8;
+	color: black;
+	margin-top: 0px;
+    box-shadow: 0 0 10px gray; 
+	}
+.smw-process{
+	width: 80px;
+	float: right;
+	background-color: #eee;
+	border-color: #D8D8D8;
+	color: black;
+	margin-top: 0px;
+    box-shadow: 0 0 10px gray; 
+	}
+
+.smw-parent{
+
+	display:table;
+	height:50px;
+	margin:0px;
+	width:100%;
+}
+
+.smw-child{
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+	margin:10px 8px;
+}
+
+.smw-hide{
+	display:none;
+}
+
+.smw-show{
+	display:inline;
+}
+
+.smw-error{
+	color:#f00;
+}	
+
+#itemsMoveTable{
+	text-align:left;
+}	
+
+#itemsMoveTable .mtv-input{
+	text-align:right;
+	width:50px
+}	
+
+.btn{
+	font-size:12px;
+}
+
+
+		  
+
+

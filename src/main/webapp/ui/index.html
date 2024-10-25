@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>A'Saffa Van Sales Mobile Site</title>
+
+    <script src="lib/js/jquery-1.8.2.min.js"></script>
+    <script src="lib/js/jquery-ui.min.js"></script>
+    <script src="lib/js/jquery.mobile.custom.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <!-- Popup Window-->
+    <script src="style/js/sweetalert2.js"></script> <!-- Swal.fire -->
+
+    <link type="text/css" rel="stylesheet" href="lib/css/jquery.mobile.custom.structure.min.css" />
+    <link type="text/css" rel="stylesheet" href="app/css/jquery-ui.min.css" />
+    <link type="text/css" rel="stylesheet" href="lib/css/jquery.mobile.custom.theme.min.css" />
+    <link type="text/css" rel="stylesheet" href="lib/bootstrap/css/bootstrap.css" />
+    <link type="text/css" rel="stylesheet" href="app/css/smw.css" />
+    <link rel="stylesheet" type="text/css" href="style/css/main.css">
+    <link rel="stylesheet" type="text/css" href="style/css/util.css">
+    <!-- Add icon library -->
+    <link rel="stylesheet" type="text/css" href="style/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!-- Animation Effect -->
+    <link rel="stylesheet" href="style/css/animate.css">
+    <link rel="stylesheet" href="style/css/animate.min.css">
+</head>
+
+<body class="body-style">
+    <script type="text/javascript">
+        idleMax = 59;// Logout after 60 minutes of IDLE
+        idleTime = 0;
+        $(document).ready(function () {
+            var idleInterval = setInterval("timerIncrement()", 60000);
+            $(this).mousemove(function (e) { idleTime = 0; });
+            $(this).keypress(function (e) { idleTime = 0; });
+        })
+        function timerIncrement() {
+            idleTime = idleTime + 1;
+            if (idleTime > idleMax) {
+                window.location = "./index.html";
+               localStorage.clear();
+            }
+        }
+    </script>
+    <div data-role="page" id="PAGE_LOGIN" class="limiter">
+        <!-- Navigation Bar - Header-->
+        <div class="container-login100" style="background-image: url('style/images/bg-01.jpg');">
+            <div class="wrap-login100 p-t-0 b-radius-15">
+                <div class="login100-form">
+                    <img class="login100-form-title m-l-r-auto" src="style/images/logo-asaffa.png" alt="Asaffa logo">
+                    <!-- Navigation end - Header-->
+                    <div class="wrap-input100 m-b-15">
+                        <span class="label-input100 logo-color-blue">Username</span>
+                        <input class="input100 logo-color-blue" id="smw-username" type="text" name="username" placeholder="Type your username">
+                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                    </div>
+                    <div class="wrap-input100">
+                        <span class="label-input100 logo-color-blue">Password</span>
+                        <input class="input100 logo-color-blue" id="smw-password" type="password" name="pass" placeholder="Type your password">
+                        <span class="focus-input100" data-symbol="&#xf190;"></span>
+                    </div>
+                    <div class="text-right p-t-8 p-b-10">
+                    </div>
+                    <div class="container-login100-form-btn m-b-5">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button id="BTN_LOGIN" class="login100-form-btn remove-button-effect">
+                                Login
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <footer class="navbar-inverse navbar-fixed-bottom text-center" id="smw-footer">
+                    <span>&copy; Copyright A'Saffa Foods S.A.O.G 2024 - v24.8</span>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <!--LOGIN PAGE END -->
+
+    <!--  HOME PAGE START -->
+    <div data-role="page" id="PAGE_HOME" class="limiter">
+        <!-- Navigation Bar - Header-->
+        <header class="navbar-inverse navbar-fixed-top" id="smw-header">
+            <div class="navbar-inner">
+                <div class="text-center smw-parent">
+                    <img class="header-logo-home" src="style/images/logo-asaffa.png" alt="Asaffa logo" width="180" height="40">
+                    <div class="wrap-login100 float-r log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-logout smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-log-out remove-span-effect"></span>
+                            </button>
+                        </div>
+                        <span style="display:block" id="userName"></span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Navigation end - Header-->
+        <div class="container-login100 no-min-height" style="margin-top: 75px; margin-bottom: 40px;">
+            <div class="wrap-login100 m-l-r-auto b-radius-15" style="width: 300px">
+                <div class="login100-form p-all-5">
+
+                    <!-- Main Container -->
+                    <div class="main-menu-title logo-color-blue">
+                        Van Sales Menu
+                    </div>
+                    <div>
+                        <div class="container-login100-form-btn m-t-b-10">
+                            <div class="wrap-login100-form-btn w-90 b-radius-10">
+                                <div class="login100-form-bgbtn"></div><a class="ff-sans-serif no-hover" id="MOVE_ORDER_VEHICLE"> Material Request from Stores</a>
+                            </div>
+                        </div>
+                        <div class="container-login100-form-btn m-t-b-10">
+                            <div class="wrap-login100-form-btn w-90 b-radius-10">
+                                <div class="login100-form-bgbtn"></div><a class="ff-sans-serif no-hover" id="INVOICE_ENTRY">Invoice Entry</a>
+                            </div>
+                        </div>
+                        <!-- <div class="container-login100-form-btn m-t-b-10"><div class="wrap-login100-form-btn w-90 b-radius-10"><div class="login100-form-bgbtn"></div><a class="ff-sans-serif no-hover" id="ORDERS_RETURNS">Returns and Cancellation</a></div></div> -->
+                        <div class="container-login100-form-btn m-t-b-10">
+                            <div class="wrap-login100-form-btn w-90 b-radius-10">
+                                <div class="login100-form-bgbtn"></div><a class="ff-sans-serif no-hover" id="ORDERS_RETURNS">Returns</a>
+                            </div>
+                        </div>
+                        <div class="container-login100-form-btn m-t-b-10">
+                            <div class="wrap-login100-form-btn w-90 b-radius-10">
+                                <div class="login100-form-bgbtn"></div><a class="ff-sans-serif no-hover" id="ONHAND_QUANTITY">On Hand Quantity</a>
+                            </div>
+                        </div>
+                        <div class="container-login100-form-btn m-t-b-10">
+                            <div class="wrap-login100-form-btn w-90 b-radius-10">
+                                <div class="login100-form-bgbtn"></div><a class="ff-sans-serif no-hover" id="EOD_SALES_REPORT">Van Sales Report</a>
+                            </div>
+                        </div>
+                        <div class="container-login100-form-btn m-t-b-10">
+                            <div class="wrap-login100-form-btn w-90 b-radius-10">
+                                <div class="login100-form-bgbtn"></div><a class="ff-sans-serif no-hover" id="SALES_INVOICE_BROWSER">Sales Invoice Browser</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="navbar-inverse navbar-fixed-bottom text-center" id="smw-footer">
+            <span>&copy; Copyright A'Saffa Foods S.A.O.G 2024 - v24.8</span>
+        </footer>
+    </div>
+    <!--  HOME PAGE END -->
+
+    <!-- INVOICE PAGE START -->
+    <div data-role="page" id="PAGE_INVOICE_ENTRY" class="container-fluid">
+        <!-- Navigation Bar - Header-->
+        <header class="navbar-inverse navbar-fixed-top" id="smw-header">
+            <div class="navbar-inner">
+                <div class="text-center smw-parent">
+                    <img class="header-logo" src="style/images/logo-asaffa.png" alt="Asaffa logo" width="180" height="40">
+                    <div class="wrap-login100 float-l log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-home smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-home remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="wrap-login100 float-r log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-logout smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-log-out remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Navigation end - Header-->
+        <div class="container-login100 no-min-height" style="margin-top: 75px; margin-bottom: 40px;">
+            <div class="wrap-login100 m-l-r-auto b-radius-15" style="width: 300px">
+                <div class="login100-form p-all-5">
+                    <!-- Main Container -->
+                    <div class="main-menu-title logo-color-blue">
+                        Invoice Entry Form
+                    </div>
+                    <div>
+                        <form id="invoice_entry_form">
+                            <div class="row">
+                                <div class="col-md-3"><label> Source </label></div>
+                                <div class="col-md-9">
+                                    <div id="transType" class="logo-color-blue">Van Sales</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3"><label> Invoice Type </label></div>
+                                <div class="col-md-9">
+                                    <select id="rentalKnockOff">
+                                        <option value=''>Select Location</option>
+                                    </select>
+                                    <!--<span id="rentalKnockOffMeaning"></span>-->
+                                    <!--<div id="invoiceCode" class="logo-color-blue">Sales Invoice</div>-->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3"><label> Customer Name</label></div>
+                                <div class="col-md-9">
+                                    <select id="cust">
+                                        <option value=''>Select Customer Name</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3"><label> Location </label></div>
+                                <div class="col-md-9">
+                                    <select id="custsite">
+                                        <option value=''>Select Location</option>
+                                    </select>
+                                    <span id="locationAddress"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3"><label> Payment Method</label></div>
+                                <div class="col-md-9 logo-color-blue" id="payment"></div>
+                            </div>
+                            <!-- <div class="row">
+                                    <div class="col-md-3"><label> VAT %</label></div>
+                                    <div class="col-md-9 logo-color-blue" id="vanVat"></div>
+                                </div> -->
+                            <div class="row">
+                                <div class="col-md-3"><label>Manual Invoice</label></div>
+                                <div class="col-md-9"><input type="text" id="manualInvoiceCreate" class="odr-tr" value='' name="manualInvoiceCreate" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3"><label>Reference No</label></div>
+                                <div class="col-md-9"><input type="text" id="refNo" class="odr-tr" value='' name="refNo" />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row smw-set-row-margin">
+                                    <table id="itemsOrderReturn" class="table table-striped">
+                                        <tr>
+                                            <th class="smw-centeralign logo-backgroundcolor-light-green">Description</th>
+                                            <th class="smw-centeralign logo-backgroundcolor-light-blue">Quantity</th>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="smw-centeralign">
+                                    <div id="invoicedataError"></div>
+                                    <button type="button" id="btn_Invoice_Review" class="btn btn-primary smw-confirm"><span>Review</span></button>
+                                    <button type="button" name="btnItemsCancel" id="cancel" class="btn btn-primary smw-cancel"><span>Cancel</span></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <footer class="navbar-inverse navbar-fixed-bottom text-center" id="smw-footer">
+                        <span>&copy; Copyright A'Saffa Foods S.A.O.G 2024 - v24.8</span>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- INVOICE PAGE END -->
+
+    <!-- SALES ENTRY/ INVOICE REVIEW PAGE START -->
+    <div data-role="page" id="PAGE_INVOICE_ENTRY_REVIEW" class="container-fluid">
+        <!-- Navigation Bar - Header-->
+        <header class="navbar-inverse navbar-fixed-top" id="smw-header">
+            <div class="navbar-inner">
+                <div class="text-center smw-parent">
+                    <img class="header-logo" src="style/images/logo-asaffa.png" alt="Asaffa logo" width="180" height="40">
+                    <div class="wrap-login100 float-l log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-home smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-home remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="wrap-login100 float-r log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-logout smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-log-out remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Navigation end - Header-->
+        <div class="container-login100 no-min-height" style="margin-top: 75px; margin-bottom: 40px;">
+            <div class="wrap-login100 m-l-r-auto b-radius-15" style="width: 300px">
+                <div class="login100-form p-all-5">
+                    <!-- Main Container -->
+                    <div class="main-menu-title logo-color-blue">
+                        Invoice Review Form
+                    </div>
+                    <div>
+                        <form id="invoice_review_form">
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Invoice Type </label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue">
+                                    <div id="INVOICE_REVIEW_TRANS_TYPE"></div>
+                                </div>
+                            </div></br>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Customer Name </label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue">
+                                    <div id="INVOICE_REVIEW_CUST"></div>
+                                </div>
+                            </div></br>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Location </label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue">
+                                    <div id="INVOICE_REVIEW_CUST_SITE"></div>
+                                </div>
+                            </div></br>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Payment Method </label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue" id="INVOICE_REVIEW_PAYMENT"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Reference No </label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue" id="INVOICE_REFERENCE_NUMBER"></div>
+                            </div>
+                            <!-- <div class="row">
+                                    <div class="col-md-3 col-xs-5"><label> VAT % </label></div>
+                                    <div class="col-md-9 col-xs-7 logo-color-blue" id="INVOICE_REVIEW_VAT"></div>
+                                </div> -->
+                            <hr class="smw-hr">
+                            <div class="row smw-set-row-margin">
+                                <div class="row smw-set-row-margin">
+                                    <label class="greenHeading"> Selected Items </label>
+                                </div>
+                                <table id="INVOICE_REVIEW_ITEMS" class="table">
+                                    <tr>
+                                        <th class="smw-centeralign logo-backgroundcolor-light-green">Description</th>
+                                        <th class="smw-centeralign logo-backgroundcolor-light-blue">Qty</th>
+                                        <th class="smw-centeralign logo-backgroundcolor-light-blue">Amt</th>
+                                        <th class="smw-centeralign logo-backgroundcolor-light-blue">Vat</th>
+                                    </tr>
+                                </table>
+                            </div>
+                            <hr class="smw-hr">
+                            <div class="row smw-set-row-margin">
+                                <div class="row smw-set-row-margin">
+                                    <label class="greenHeading"> Promotional Items (FOC) </label>
+                                </div>
+                                <table id="INVOICE_REVIEW_PROM_ITEMS" class="table">
+                                    <tr>
+                                        <th class="smw-centeralign logo-backgroundcolor-light-green">Description</th>
+                                        <th class="smw-centeralign logo-backgroundcolor-light-blue">Quantity</th>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Total </label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue" id="INVOICE_REVIEW_TOTAL_AMOUNT"></div> <br /><br />
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> VAT Amount </label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue" id="INVOICE_REVIEW_VAT_AMOUNT"></div> <br /><br />
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Net Amount </label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue" id="INVOICE_REVIEW_NET_AMOUNT"></div> <br /><br />
+                            </div>
+                            <div class="smw-centeralign">
+                                <label id="reviewdataError"></label>
+                                <button type="button" id="btn_Invoice_Confirm" class="btn btn-primary smw-confirm show-confirm"><span>Confirm</span></button>
+                                <button type="button" name="btnItemsCancel" id="Modify" class="btn btn-primary smw-cancel"><span>Modify</span></button>
+                            </div>
+                        </form>
+                    </div>
+                    <footer class="navbar-inverse navbar-fixed-bottom text-center" id="smw-footer">
+                        <span>&copy; Copyright A'Saffa Foods S.A.O.G 2024 - v24.8</span>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SALES ENTRY/ INVOICE CONFIRMATION PAGE START -->
+    <div data-role="page" id="PAGE_INVOICE_ENTRY_CONFIRMATION" class="container-fluid">
+        <!-- Navigation Bar - Header-->
+        <header class="navbar-inverse navbar-fixed-top" id="smw-header">
+            <div class="navbar-inner">
+                <div class="text-center smw-parent">
+                    <img class="header-logo" src="style/images/logo-asaffa.png" alt="Asaffa logo" width="180" height="40">
+                    <div class="wrap-login100 float-l log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-home smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-home remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="wrap-login100 float-r log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-logout smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-log-out remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Navigation end - Header-->
+        <div class="container-login100 no-min-height" style="margin-top: 75px; margin-bottom: 40px;">
+            <div class="wrap-login100 m-l-r-auto b-radius-15" style="width: 300px">
+                <div class="login100-form p-all-5">
+                    <!-- Main Container -->
+                    <div class="main-menu-title logo-color-blue">
+                        Invoice Confirmation Form
+                    </div>
+                    <div>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Invoice Type </label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue">
+                                    <div id="INVOICE_CONF_TRANS_TYPE"></div>
+                                </div>
+                            </div></br>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Customer Name </label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue">
+                                    <div id="INVOICE_CONF_CUST"></div>
+
+                                </div>
+                            </div></br>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Location </label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue">
+                                    <div id="INVOICE_CONF_CUST_SITE"></div>
+
+                                </div>
+                            </div></br>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Payment Method </label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue" id="INVOICE_CONF_PAYMENT"></div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Reference No </label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue" id="INVOICE_CONF_REF_NO"></div>
+
+                            </div>
+                            <!-- <div class="row">
+                                    <div class="col-md-3 col-xs-5"><label> VAT % </label></div>
+                                    <div class="col-md-9 col-xs-7 logo-color-blue" id="INVOICE_CONF_VAT"></div>
+                                </div> -->
+
+                            <hr class="smw-hr">
+                            <div class="row smw-set-row-margin">
+                                <div class="row smw-set-row-margin">
+                                    <label class="greenHeading"> Selected Items: </label>
+                                </div>
+                                <table id="INVOICE_CONF_ITEMS" class="table table-striped">
+                                    <tr>
+                                        <th class="smw-centeralign logo-backgroundcolor-light-green">Description</th>
+                                        <th class="smw-centeralign logo-backgroundcolor-light-blue">Qty</th>
+                                        <th class="smw-centeralign logo-backgroundcolor-light-blue">Amt</th>
+                                        <th class="smw-centeralign logo-backgroundcolor-light-blue">VAT</th>
+                                    </tr>
+                                </table>
+                            </div>
+                            <hr class="smw-hr">
+                            <div class="row smw-set-row-margin">
+                                <div class="row smw-set-row-margin">
+                                    <label class="greenHeading"> Promotional Items (FOC) </label>
+                                </div>
+                                <table id="INVOICE_CONF_PROM_ITEMS" class="table table-striped">
+                                    <tr>
+                                        <th class="smw-centeralign logo-backgroundcolor-light-green">Description</th>
+                                        <th class="smw-centeralign logo-backgroundcolor-light-blue">Quantity</th>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Total </label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue" id="INVOICE_CONF_TOTAL_AMOUNT"></div> <br /><br />
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> VAT Amount </label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue" id="INVOICE_CONF_VAT_AMOUNT"></div> <br /><br />
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Net Amount </label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue" id="INVOICE_CONF_NET_AMOUNT"></div> <br /><br />
+                            </div>
+                            <div class="smw-centeralign">
+                                <button type="button" id="INVOICE_CONF_BTN_PRINT" class="btn btn-primary smw-print"><span>Invoice Print</span></button>
+                                <button type="button" id="INV_RCPT_CONF_CANCL" name="cancel" class="btn btn-primary smw-cancel"><span>Back</span></button>
+                            </div>
+                        </form>
+                    </div>
+                    <footer class="navbar-inverse navbar-fixed-bottom text-center" id="smw-footer">
+                        <span>&copy; Copyright A'Saffa Foods S.A.O.G 2024 - v24.8</span>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SALES ENTRY/ INVOICE CONFIRMATION PAGE END -->
+    <!-- PAGE INVOICE RECEIPT START -->
+    <div data-role="page" id="PAGE_INVOICE_RECEIPT_CONFIRMATION" class="container-fluid">
+        <!-- Navigation Bar - Header-->
+        <header class="navbar-inverse navbar-fixed-top" id="smw-header">
+            <div class="navbar-inner">
+                <div class="text-center smw-parent">
+                    <img class="header-logo" src="style/images/logo-asaffa.png" alt="Asaffa logo" width="180" height="40">
+                    <div class="wrap-login100 float-l log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-home smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-home remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="wrap-login100 float-r log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-logout smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-log-out remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Navigation end - Header-->
+        <!-- Main Container -->
+        <div class="container-login100 no-min-height" style="margin-top: 75px; margin-bottom: 40px;">
+            <div class="wrap-login100 m-l-r-auto b-radius-15" style="width: 300px">
+                <div class="login100-form p-all-5">
+                    <div class="main-menu-title logo-color-blue">
+                        Invoice Receipt Form
+                    </div>
+                    <div>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Invoice Type </label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue">
+                                    <div id="INVOICE_RECEIPT_TRANS_TYPE"></div>
+                                </div>
+                            </div> </br>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Customer Name </label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue">
+                                    <div id="INVOICE_RECEIPT_CUST"></div>
+
+                                </div>
+                            </div></br>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Location </label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue">
+                                    <div id="INVOICE_RECEIPT_CUST_SITE"></div>
+
+                                </div>
+                            </div></br>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Payment Method</label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue">
+                                    <div id="INVOICE_RECEIPT_PAYMENT"></div>
+
+                                </div>
+                            </div></br>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Invoice Number</label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue">
+                                    <div id="INVOICE_RECEIPT_NUMBER"></div>
+
+                                </div>
+                            </div></br>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Cheque Number</label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue">
+                                    <div id="INVOICE_RECEIPT_CHEQUE">
+                                        <input type="text" id="chequeNum" class="odr-tr" value='' name="chequeNum" /> </br>
+                                    </div>
+
+                                </div>
+                            </div></br>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Amount </label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue">
+                                    <div id="INVOICE_RECEIPT_AMOUNT">
+                                        <input type="text" id="chequeAmt" class="odr-tr" value='' name="chequeAmt" />
+                                    </div>
+                                </div>
+                            </div></br>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Currency </label></div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue">
+                                    <div id="INVOICE_RECEIPT_CURRENCY"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="INVOICE_RECEIPT_SUCCESS_MSG"></div>
+                            </div>
+                            <div class="smw-center-align">
+                                <button type="button" id="BTN_INVOICE_RECEIPT_CONFIRM" class="col-xs-10 col-sm-6 btn btn-primary smw-submit"><span>Submit</span></button>
+                                <button type="button" id="INVOICE_RECEIPT_BTN_PRINT" class=" col-xs-10 col-sm-6 btn btn-primary smw-print"><span>Receipt Print</span></button>
+                                <button type="button" id="INVOICE_CANCEL" name="cancel" class=" col-xs-10 col-sm-6 btn btn-primary smw-confirmcancel"> <strong><span>Cancel</span></strong></button>
+                            </div>
+                        </form>
+                    </div>
+                    <footer class="navbar-inverse navbar-fixed-bottom text-center" id="smw-footer">
+                        <span>&copy; Copyright A'Saffa Foods S.A.O.G 2024 - v24.8</span>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- PAGE INVOICE RECEIPT END -->
+    <!-- PAGE INVOICE CANCELLATION START -->
+    <div data-role="page" id="PAGE_ORDERS_RETURN" class="container-fluid">
+        <!-- Navigation Bar - Header-->
+        <header class="navbar-inverse navbar-fixed-top" id="smw-header">
+            <div class="navbar-inner">
+                <div class="text-center smw-parent">
+                    <img class="header-logo" src="style/images/logo-asaffa.png" alt="Asaffa logo" width="180" height="40">
+                    <div class="wrap-login100 float-l log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-home smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-home remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="wrap-login100 float-r log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-logout smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-log-out remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Navigation end - Header-->
+        <!-- Main Container -->
+        <div class="container-login100 no-min-height" style="margin-top: 75px; margin-bottom: 40px;">
+            <div class="wrap-login100 m-l-r-auto b-radius-15" style="width: 300px">
+                <div class="login100-form p-all-5">
+                    <div class="main-menu-title logo-color-blue">
+                        <!-- Returns and Cancellation Form -->
+                        <!--Dinesh hide 3-jun-2022  -->
+                        Returns Form
+                    </div>
+                    <div>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-3"><label> Trans Type </label></div>
+                                <div class="col-md-9">
+                                    <select id="ORDER_RETURNS_TRANS">
+                                        <option value=''>Select Trans Type</option>
+                                    </select>
+                                    <!--                                        <div id="ORDER_RETURNS_TRANS" class="logo-color-blue">
+                                                                                    CANCEL
+                                                                                </div>-->
+                                </div>
+                            </div>
+                            <!-- Updated on 12-02-2019 by Balaji Manickam - 4i Apps -->
+                            <!-- Added id to div section to show / hide based on Trans Type option -->
+                            <div class="row" id="ORDER_RETURNS_TRANSTYPE_ENABLE">
+                                <div class="col-md-3"><label>Invoice Type </label></div>
+                                <div class="col-md-9">
+                                    <select id="ORDER_RETURNS_TRANSTYPE">
+                                        <option value=''>Select Invoice Type</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3"><label> Customer Name</label></div>
+                                <div class="col-md-9">
+                                    <select id="SELECT_ORDERS_RETURN_CUST">
+                                        <option value=''>Select Customer Name</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3"><label> Location </label></div>
+                                <div class="col-md-9">
+                                    <select id="SELECT_ORDERS_RETURN_CUST_SITE">
+                                        <option value=''>Select Location</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3"><label> Reference No </label></div>
+                                <div class="col-md-9">
+                                    <input type="text" id="SELECT_ORDERS_RETURN_REF_NO" class="odr-tr" value='' name="SELECT_ORDERS_RETURN_REF_NO" />
+                                </div>
+                            </div>
+                            <div class="row" id="PAYMENTS_ORDERS_RETURNS_ENABLE">
+                                <div class="col-md-3"><label> Payment Method</label></div>
+                                <div class="col-md-9 logo-color-blue" id="PAYMENTS_ORDERS_RETURNS"></div>
+                            </div>
+                            <!-- <div class="row" id="VAT_ORDERS_RETURNS_ENABLE">
+                                    <div class="col-md-3"><label> VAT %</label></div>
+                                    <div class="col-md-9 logo-color-blue" id="VAT_ORDERS_RETURNS"></div>
+                                </div> -->
+                            <!-- Updated on 12-02-2019 by Balaji Manickam - 4i Apps -->
+                            <!-- Added id to div section to show / hide based on Trans Type option -->
+                            <div class="row smw-set-row-margin" id="ITEMS_ORDER_RETURN_ORT_ENABLE">
+                                <table id="ITEMS_ORDER_RETURN_ORT" class="table table-striped">
+                                </table>
+                            </div>
+                            <!-- Updated on 12-02-2019 by Balaji Manickam - 4i Apps -->
+                            <!-- Added table for showing invoice detail to show / hide based on Trans Type option -->
+                            <div class="row smw-set-row-margin" id="ITEMS_ORDER_CANCEL_ORT_ENABLE">
+                                <table id="ITEMS_ORDER_CANCEL_ORT" class="table table-striped">
+                                </table>
+                            </div>
+                            <div class="smw-centeralign">
+                                <label id="orderreturnsdataError"></label>
+                                <div id="RETURN_SEC_BUTTON">
+                                    <button type="button" id="ORD_BTNITEMS_CONFIRM" class="btn btn-primary smw-confirm"><span>Confirm</span></button>
+                                    <button type="button" id="ORD_BTNITEMS_CANCEL" class="btn btn-primary smw-cancel"> <span>Cancel</span></button>
+                                </div>
+                                <div id="CANCEL_SEC_BUTTON">
+                                    <button type="button" id="ORD_BTNITEMS_CANCEL_INVOICE" class="btn btn-primary smw-confirm"><span>Cancel Invoice</span></button>
+                                    <button type="button" class="btn btn-primary smw-cancel"> <span>Back</span></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <footer class="navbar-inverse navbar-fixed-bottom text-center" id="smw-footer">
+                    <span>&copy; Copyright A'Saffa Foods S.A.O.G 2024 - v24.8</span>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <!-- ORDERS RETURNS END -->
+    <!-- ORDER RETURNS CONFIRMATION START -->
+    <div data-role="page" id="PAGE_MOVE_ORDER_RETURNS_CONFIRMATION" class="container-fluid">
+        <!-- Navigation Bar - Header-->
+        <header class="navbar-inverse navbar-fixed-top" id="smw-header">
+            <div class="navbar-inner">
+                <div class="text-center smw-parent">
+                    <img class="header-logo" src="style/images/logo-asaffa.png" alt="Asaffa logo" width="180" height="40">
+                    <div class="wrap-login100 float-l log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-home smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-home remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="wrap-login100 float-r log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-logout smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-log-out remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Navigation end - Header-->
+        <!-- Main Container -->
+        <div class="container-login100 no-min-height" style="margin-top: 75px; margin-bottom: 40px;">
+            <div class="wrap-login100 m-l-r-auto b-radius-15" style="width: 300px">
+                <div class="login100-form p-all-5">
+                    <div class="main-menu-title logo-color-blue">
+                        Orders and Returns Confirmation Form
+                    </div>
+                    <div>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Trans Type </label> </div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue">
+                                    <div id="orderRetnTransType"> </div>
+
+                                </div>
+                            </div></br>
+
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Invoice Type </label> </div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue">
+                                    <div id="transactionType"> </div>
+
+                                </div>
+                            </div></br>
+
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Customer Name </label> </div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue">
+                                    <div id="customerName"> </div>
+
+                                </div>
+                            </div></br>
+
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label>Customer Site </label> </div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue">
+                                    <div id="customerSite"> </div>
+
+                                </div>
+                            </div></br>
+
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Payment </label> </div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue">
+                                    <div id="paymentMethod"> </div>
+
+                                </div>
+                            </div></br>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-5"><label> Reference No </label> </div>
+                                <div class="col-md-9 col-xs-7 logo-color-blue">
+                                    <div id="orderRtnRefNo"> </div>
+
+                                </div>
+                            </div></br>
+                            <!-- <div class="row">
+                                    <div class="col-md-3 col-xs-5"><label> Vat % </label> </div>
+                                    <div class="col-md-9 col-xs-7 logo-color-blue">
+                                        <div id="vatRates"> </div>
+                                    </div> -->
+                    </div></br>
+
+                    <div class="row">
+                        <div class="col-md-3 col-xs-5"><label> Total Amount </label> </div>
+                        <div class="col-md-9 col-xs-7 logo-color-blue">
+                            <div id="totalAmount"> </div>
+
+                        </div>
+                    </div></br>
+                    <div class="row">
+                        <div class="col-md-3 col-xs-5"><label> VAT Amount </label> </div>
+                        <div class="col-md-9 col-xs-7 logo-color-blue">
+                            <div id="vatAmount"> </div>
+
+                        </div>
+                    </div></br>
+                    <div class="row">
+                        <div class="col-md-3 col-xs-5"><label> Net Amount </label> </div>
+                        <div class="col-md-9 col-xs-7 logo-color-blue">
+                            <div id="netAmount"> </div>
+
+                        </div>
+                    </div></br>
+
+                    <div>
+                        <hr class="smw-hr">
+                        <div class="row smw-set-row-margin">
+                            <div class="row smw-set-row-margin"><label class="greenHeading"> Selected Items </label> </div>
+
+                            <table id="itemsOrderReturns" class="table table-striped">
+                                <tr>
+                                    <th class="smw-centeralign logo-backgroundcolor-light-green">Description</th>
+                                    <th class="smw-centeralign logo-backgroundcolor-light-blue">Qty</th>
+                                    <th class="smw-centeralign logo-backgroundcolor-light-blue">Amt</th>
+                                    <th class="smw-centeralign logo-backgroundcolor-light-blue">Vat</th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    </br>
+                    <div>
+                        <hr class="smw-hr">
+                        <div class="row smw-set-row-margin">
+                            <div class="row smw-set-row-margin"><label class="greenHeading"> Promotional Items (FOC) </label> </div>
+                            <table id="promItemsOrderReturns" class="table table-striped">
+                                <tr>
+                                    <th class="smw-centeralign logo-backgroundcolor-light-green">Description</th>
+                                    <th class="smw-centeralign logo-backgroundcolor-light-blue">Quantity</th>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="smw-centeralign">
+                            <form>
+                                <button type="button" id="INVOICE_ORD_CONF_BTN_PRINT" class="btn btn-primary smw-print"><span>Print</span></button>
+                                <button type="button" name="cancel" id="BTN_CANCEL_ODR_CONFRM" class="btn btn-primary smw-confirmcancel">
+                                    <strong><span>Cancel</span></strong>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+                <footer class="navbar-inverse navbar-fixed-bottom text-center" id="smw-footer">
+                    <span>&copy; Copyright A'Saffa Foods S.A.O.G 2024 - v24.8</span>
+                </footer>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- ORDER RETURNS CONFIRMATION END -->
+
+    <!--On Hand Quantity START-->
+    <div data-role="page" id="PAGE_ONHAND_QUANTITY" class="container-fluid">
+        <!-- Navigation Bar - Header-->
+        <header class="navbar-inverse navbar-fixed-top" id="smw-header">
+            <div class="navbar-inner">
+                <div class="text-center smw-parent">
+                    <img class="header-logo" src="style/images/logo-asaffa.png" alt="Asaffa logo" width="180" height="40">
+                    <div class="wrap-login100 float-l log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-home smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-home remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="wrap-login100 float-r log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-logout smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-log-out remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Navigation end - Header-->
+        <!-- Main Container -->
+        <div class="container-login100 no-min-height" style="margin-top: 75px; margin-bottom: 40px;">
+            <div class="wrap-login100 m-l-r-auto b-radius-15" style="width: 300px">
+                <div class="login100-form p-all-5">
+                    <div class="main-menu-title logo-color-blue">
+                        On Hand Quantity
+                    </div>
+                    <div class="row ">
+                        <form method="post">
+                            <table id="ON_HANDS_TABLE" class="table table-striped ">
+                                <tr>
+                                    <th style='display:none'>ID</th>
+                                    <th class="smw-centeralign logo-backgroundcolor-light-green">Description</th>
+                                    <th class="smw-centeralign logo-backgroundcolor-light-blue">Quantity</th>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                    <div class="smw-centeralign">
+                        <button type="button" id="btnHandsOnPrint" class="btn btn-primary smw-print"><span>On Hand Print</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="navbar-inverse navbar-fixed-bottom text-center" id="smw-footer">
+            <span>&copy; Copyright A'Saffa Foods S.A.O.G 2024 - v24.8</span>
+        </footer>
+    </div>
+    <!--On Hand Quantity END -->
+
+    <!--Van Sales Report Browser START-->
+    <div data-role="page" id="PAGE_VAN_SALES_BROWSER" class="container-fluid">
+        <!-- Navigation Bar - Header-->
+        <header class="navbar-inverse navbar-fixed-top" id="smw-header">
+            <div class="navbar-inner">
+                <div class="text-center smw-parent">
+                    <img class="header-logo" src="style/images/logo-asaffa.png" alt="Asaffa logo" width="180" height="40">
+                    <div class="wrap-login100 float-l log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-home smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-home remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="wrap-login100 float-r log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-logout smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-log-out remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Navigation end - Header-->
+        <!-- Main Container -->
+        <div class="container-login100 no-min-height" style="margin-top: 75px; margin-bottom: 40px;">
+            <div class="wrap-login100 m-l-r-auto b-radius-15" style="width: 300px">
+                <div class="login100-form p-all-5">
+                    <div class="main-menu-title logo-color-blue">
+                        Sales Day Book Report
+                    </div>
+                    <div class="row">
+                        <div class="col col-md-9 col-xs-7">
+                            <div class="smw-centeralign">
+                                <input type="text" id="vanSalesCreateDate" style="width: 60%" name="vanSalesCreateDate" />
+                                <div>
+                                    <button type="button" id="vanSalesReport" name="vanSalesReport"><span>GO</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="navbar-inverse navbar-fixed-bottom text-center" id="smw-footer">
+            <span>&copy; Copyright A'Saffa Foods S.A.O.G 2024 - v24.8</span>
+        </footer>
+    </div>
+    <!--Van Invoice Browser END -->
+    <!--Sales Invoice Browser START-->
+    <div data-role="page" id="PAGE_SALES_INVOICE_BROWSER" class="container-fluid">
+        <!-- Navigation Bar - Header-->
+        <header class="navbar-inverse navbar-fixed-top" id="smw-header">
+            <div class="navbar-inner">
+                <div class="text-center smw-parent">
+                    <img class="header-logo" src="style/images/logo-asaffa.png" alt="Asaffa logo" width="180" height="40">
+                    <div class="wrap-login100 float-l log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-home smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-home remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="wrap-login100 float-r log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-logout smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-log-out remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Navigation end - Header-->
+        <!-- Main Container -->
+        <div class="container-login100 no-min-height" style="margin-top: 75px; margin-bottom: 40px;">
+            <div class="wrap-login100 m-l-r-auto b-radius-15" style="width: 300px">
+                <div class="login100-form p-all-5">
+                    <div class="main-menu-title logo-color-blue">
+                        Sales Invoice Browser
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>Menu Type</label>
+                        </div>
+                        <div class="col">
+                            <select id="invoiceType" style="width: 60%;">
+                                <option value="ORDER">ORDER</option>
+                                <option value="RETURN">RETURN</option>
+                                <option value="CANCEL">CANCEL</option>
+                                <option value="MOVE_ORDER">MATERIAL REQUESTED</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label id="salesInvoiceDatePicker">Order Date</label>
+                        </div>
+                        <div class="col" style="height:30px; margin-bottom: 10px;">
+                            <input type="text" style="width: 60%;" onchange="SMW.salesInvoiceBrowser.onChangeInvoiceDate()" id="invoiceCreateDate" name="invoiceCreateDate" />
+                        </div>
+                    </div>
+                    <div class="row" id="orderNoRow" style="display: none">
+                        <div class="col">
+                            <label>Material Request No</label>
+                        </div>
+                        <div class="col">
+                            <select id="orderNo" style="width: 60%;">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button type="button" id="salesInvoiceDisplay" name="salesInvoiceDisplay"><span>GO</span></button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button type="button" id="materialOrderPrint" name="salesInvoiceDisplay"><span>Print</span></button>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <form method="post">
+                            <table id="SALES_INVOICE" class="table table-striped ">
+                                <tr>
+                                    <th>Customer Name</th>
+                                    <th>Customer Location</th>
+                                    <th>Invoice Number</th>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                    <div class="row ">
+                        <form method="post">
+                            <table id="MATERIAL_REQUEST" class="table table-striped ">
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Quantity</th>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="navbar-inverse navbar-fixed-bottom text-center" id="smw-footer">
+            <span>&copy; Copyright A'Saffa Foods S.A.O.G 2024 - v24.8</span>
+        </footer>
+    </div>
+    <!--Sales Invoice Browser END -->
+    <!-- Material Transfer to Stores START-->
+    <div data-role="page" id="PAGE_MOVE_ORDER_INVENTORY" class="container-fluid">
+        <!-- Navigation Bar - Header-->
+        <header class="navbar-inverse navbar-fixed-top" id="smw-header">
+            <div class="navbar-inner">
+                <div class="text-center smw-parent">
+                    <img class="header-logo" src="style/images/logo-asaffa.png" alt="Asaffa logo" width="180" height="40">
+                    <div class="wrap-login100 float-l log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-home smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-home remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="wrap-login100 float-r log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-logout smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-log-out remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Navigation end - Header-->
+        <!-- Main Container -->
+        <div class="container-login100 no-min-height" style="margin-top: 75px; margin-bottom: 40px;">
+            <div class="wrap-login100 m-l-r-auto b-radius-15" style="width: 300px">
+                <div class="login100-form p-all-5">
+                    <div class="main-menu-title logo-color-blue">
+                        Material Transfer to Stores
+                    </div>
+                    <div id="ERROR_DIV">
+                    </div>
+                    <div id="CONTENT_MOVE_TO_INV">
+                        <form>
+                            <div class="row col-xs-12 col-sm-8 col-md-6">
+                                <label class="pull-left" id="l1"> SubInventory : </label>
+                                <select id="smw-ddsi" name="Subinv" class="pull-right">
+                                    <option value="Select">Select</option>
+                                </select></br></br>
+                            </div>
+                            <div class="row col-xs-12 col-sm-8 col-md-6">
+                                <label class="pull-left" id="l2"> Location : </label>
+                                <select class="pull-right" id="smw-ddloc" name="Loc">
+                                    <option value="Select">Select</option>
+                                </select></br></br>
+                            </div>
+                        </form>
+                        <div class="row ">
+                            <form method="post">
+                                <table id="itemsMoveTable" class="table table-striped ">
+                                </table>
+                            </form>
+                        </div>
+                        <div class="smw-centeralign">
+                            <button type="button" id="BTN_MOV_INVTRY_CONFIRM" class="btn btn-primary smw-confirm"><span>Confirm</span></button>
+                            <button type="button" id="BTN_MOV_INVTRY_CANCEL" class="btn btn-primary smw-cancel"><span>Cancel</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="navbar-inverse navbar-fixed-bottom text-center" id="smw-footer">
+            <span>&copy; Copyright A'Saffa Foods S.A.O.G 2024 - v24.8</span>
+        </footer>
+    </div>
+    <!--Material Transfer to Stores End -->
+
+    <!-- Material Request from Stores Start -->
+    <div data-role="page" id="PAGE_MOVE_ORDER_VEHICLE" class="container-fluid">
+        <!-- Navigation Bar - Header-->
+        <header class="navbar-inverse navbar-fixed-top" id="smw-header">
+            <div class="navbar-inner">
+                <div class="text-center smw-parent">
+                    <img class="header-logo" src="style/images/logo-asaffa.png" alt="Asaffa logo" width="180" height="40">
+                    <div class="wrap-login100 float-l log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-home smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-home remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="wrap-login100 float-r log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-logout smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-log-out remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Navigation end - Header-->
+        <div class="container-login100 no-min-height" style="margin-top: 75px; margin-bottom: 40px;">
+            <div class="wrap-login100 m-l-r-auto b-radius-15" style="width: 300px">
+                <div class="login100-form p-all-5">
+
+                    <!-- Main Container -->
+                    <div class="main-menu-title logo-color-blue">
+                        Material Request from Stores
+                    </div>
+                    <div id="ERROR_MOV_TO_VEH">
+                    </div>
+                    <div id="CONTENT_MOV_TO_VEH">
+                        <div class="row ">
+                            <form method="post">
+                                <div id='vehiclesPrintContainer'>
+                                    <table id="itemsVehicleTable" class="table table-striped">
+                                    </table>
+                                </div>
+                                <div id="VehBtnsContainer" style="text-align: center">
+                                    <button type="button" id="BTN_ITEMS_VEH_CONFIRM" class="btn btn-primary smw-confirm"><span>Confirm</span></button>
+                                    <button type="button" id="BTN_ITEMS_VEH_CANCEL" class="btn btn-primary  smw-cancel"><span>Cancel</span></button>
+                                    <button type="button" id="btnItemsTransact" class="btn btn-primary smw-hide  smw-process"><span>Process</span></button>
+                                    <button type="button" id="btnItemsMovVehPrint" class="btn btn-primary smw-hide  smw-print"><span>Print</span></button>
+                                    <button type="button" id="btnItemsTransactCancel" class="btn btn-primary smw-hide  smw-cancel noHome"><span>Cancel</span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <footer class="navbar-inverse navbar-fixed-bottom text-center" id="smw-footer">
+                        <span>&copy; Copyright A'Saffa Foods S.A.O.G 2024 - v24.8</span>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Material Request from Stores End -->
+
+    <!-- CONFIRMATION PAGE  START -->
+
+    <div data-role="page" id="PAGE_CONFIRMATION" class="container-fluid">
+        <!-- Navigation Bar - Header-->
+        <header class="navbar-inverse navbar-fixed-top" id="smw-header">
+            <div class="navbar-inner">
+                <div class="text-center smw-parent">
+                    <img class="header-logo" src="style/images/logo-asaffa.png" alt="Asaffa logo" width="180" height="40">
+                    <div class="wrap-login100 float-l log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-home smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-home remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="wrap-login100 float-r log-out-container">
+                        <div class="log-out nav-button wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button type="button" class="smw-logout smw-child remove-button-effect">
+                                <span class="glyphicon glyphicon-log-out remove-span-effect"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Navigation end - Header-->
+        <div class="container-login100 no-min-height" style="margin-top: 75px; margin-bottom: 40px;">
+            <div class="wrap-login100 m-l-r-auto b-radius-15" style="width: 300px">
+                <div class="login100-form p-all-5">
+                    <div id="CONFIRM_PAGE_HEADER" class="smw-confirmMsgHeader"> </div>
+                    <div id="CONFIRM_MSG" class="smw-confirmMsg"></div>
+                    <footer class="navbar-inverse navbar-fixed-bottom text-center" id="smw-footer">
+                        <span>&copy; Copyright A'Saffa Foods S.A.O.G 2024 - v24.8</span>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app/js/utils.js"></script>
+    <script src="app/js/smw.js"></script>
+    <script src="app/js/smw.moveToInventory.js"></script>
+    <script src="app/js/smw.moveToVehicles.js"></script>
+    <script src="app/js/smw.mobWebsite.js"></script>
+    <script src="app/js/orderreturns.js"></script>
+    <script src="app/js/orderreturnConfirm.js"></script>
+    <script src="app/js/salesentry.js"></script>
+    <script src="app/js/invoicereceipt.js"></script>
+    <script src="app/js/salesconfirmation.js"></script>
+    <script src="app/js/salesreview.js"></script>
+    <script src="app/js/smw.ajax.js"></script>
+    <script src="app/js/smw.onHandQuantity.js"></script>
+    <script src="app/js/salesInvoiceBrowser.js"></script>
+    <script src="app/js/vanSalesReport.js"></script>
+    <script>
+        (
+            function () {
+                SMW.init();
+            }
+        )();
+    </script>
+</body>
+
+</html>
